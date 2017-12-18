@@ -58,19 +58,19 @@ allObjectsCombined;
 // These actions are put on an object.  It has a type and then anything else it needs.
 
 let action = {
-    type: "update_age",
+    type: "update_age",//must always have a type. must be a string.
     age: 10
 }
 
-function reducer(state, action) {
+function reducer(state, action) { //state: what is already there, action: what you want to change.
     state;
     action;
     switch (action.type) {
         case "update_age":
-            return Object.assign({}, state, { age: action.age })
-    }
+            return Object.assign({}, state, { age: action.age })//make a brand new object, copy everything from befor, override age.
+    }   //make sure we return it!! if not it will just use the old 'state'.
 }
-let state1 = reducer(allObjectsCombined, action)
+let state1 = reducer(allObjectsCombined, action)//there is still the old state but we made a new state1 with object.assign.
 state1;
 
 
@@ -91,16 +91,15 @@ function updateAge(age) {
     }
 }
 
-
 function reducer2(state, action) {
     //SINGLE POINT OF TRUTH
     switch (action.type) {
         case "update_age":
             return Object.assign({}, state, { age: action.age })
         case "update_cereal":
-            return Object.assign({}, state, { age: action.age })
+            return Object.assign({}, state, { cereal: action.cereal })
         case "update_name":
-            return Object.assign({}, state, { age: action.age })
+            return Object.assign({}, state, { name: action.name })
     }
 }
 let ageAction = updateAge(12);
