@@ -4,13 +4,13 @@
 
 //CONSTANTS
 const UPDATE_NAME = "UPDATE_NAME";
-const ADD_PERSON = "ADD_PERSON"
-const GET_PEOPLE = "GET_PEOPLE"
+const ADD_PERSON = "ADD_PERSON";//keeping it a variable (const) will keep typos a minimum.
+const GET_PEOPLE = "GET_PEOPLE";
 
-//ACTION BUILDERS
+//!!!ACTION BUILDERS!!!
 export function updateName(name) {
     return {
-        type: UPDATE_NAME,
+        type: UPDATE_NAME,//const to uppercase the whole thing. it lets developers know not to change it.
         name //es6 shortcut for assigning a variable to an object with the same property name as the variable name
     }
 }
@@ -48,8 +48,8 @@ export default function (state = initialState, action) {
         case ADD_PERSON:
             let peopleCopy = state.people.slice();
             let { name, age } = action;
-            peopleCopy.push({ name, age })
-            return Object.assign({}, state, { people: peopleCopy })
+            peopleCopy.push({ name, age })//make state immutable: dont change old stuff. but make new stuff.
+            return Object.assign({}, state, { people: peopleCopy })// with us making a new object so that it will rerender/update.
         case GET_PEOPLE + "_PENDING":
             //FROM REDUX-PROMISE-MIDDLEWARE
             //This action is fired when the promise starts, but isn't done.

@@ -4,8 +4,8 @@ import './App.css';
 
 //NEW IMPORTS 
 // To make this component work we need to 'connect' it with our top level redux store
-import { connect } from 'react-redux'
-import { updateName, addPerson } from './reducer'
+import { connect } from 'react-redux'//so that it can connect to get changes.
+import { updateName, addPerson } from './reducer'//Action builders.
 
 class App extends Component {
   render() {

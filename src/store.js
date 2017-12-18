@@ -1,12 +1,12 @@
 import { createStore } from 'redux'; //Notice redux, not react-redux
-import reducer from './reducer';
+import reducer from './reducer';//from another file not npm
 
 let store = createStore(reducer);
 
 export default store; //The store is used in index.js by the react-redux top level provider
 
 
-//STORE WITH MIDDLEWARE
+// // STORE WITH MIDDLEWARE
 // import { createStore } from 'redux'; //Notice redux, not react-redux
 // import reducer from './reducer';
 // import promiseMiddleware from 'redux-promise-middleware';
